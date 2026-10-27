@@ -1,0 +1,35 @@
+[1m------------------------------------------------------------------------[0m
+ETAPA 1/4 · SAST BLOQUEANTE — Semgrep (p/sql-injection)
+[1m------------------------------------------------------------------------[0m
+[32m[PASS] SAST: 0 hallazgos de inyeccion SQL[0m
+[1m------------------------------------------------------------------------[0m
+ETAPA 2/4 · SAST INFORMATIVO — Semgrep (p/owasp-top-ten)
+[1m------------------------------------------------------------------------[0m
+           18┆ res.redirect(toUrl)
+                         
+    routes/userProfile.ts
+   ❯❯❱ javascript.lang.security.audit.code-string-concat.code-string-concat
+          ❰❰ Blocking ❱❱
+          Found data from an Express or Next web request flowing to `eval`. If this data is user-controllable
+          this can lead to execution of arbitrary system commands in the context of your application process.
+          Avoid `eval` whenever possible.                                                                    
+          Details: https://sg.run/96Yk                                                                       
+                                                                                                             
+           65┆ username = eval(code) // eslint-disable-line no-eval
+
+  (Juice Shop contiene vulnerabilidades deliberadas: este barrido es un baseline,
+   no un gate. En un producto real se bloquea con excepciones aprobadas por el CISO.)
+[1m------------------------------------------------------------------------[0m
+ETAPA 3/4 · SCA — npm audit
+[1m------------------------------------------------------------------------[0m
+  dependencias de producción -> {'info': 0, 'low': 2, 'moderate': 10, 'high': 17, 'critical': 7, 'total': 36}
+[33m[WARN] SCA: dependencias de producción con HIGH/CRITICAL (aceptado por baseline del laboratorio)[0m
+[1m------------------------------------------------------------------------[0m
+ETAPA 4/4 · Config as Code — endpoints sensibles sin throttle
+[1m------------------------------------------------------------------------[0m
+  OK  rate limit en /rest/user/login
+  OK  rate limit en /rest/user/reset-password
+[1m------------------------------------------------------------------------[0m
+RESULTADO DEL GATE
+[1m------------------------------------------------------------------------[0m
+[42;30m PIPELINE VERDE — se permite desplegar [0m

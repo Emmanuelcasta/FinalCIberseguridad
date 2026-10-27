@@ -1,0 +1,98 @@
+diff --git a/routes/login.ts b/routes/login.ts
+index fb9fce3..f3f7593 100644
+--- a/routes/login.ts
++++ b/routes/login.ts
+@@ -13,6 +13,13 @@ import { UserModel } from '../models/user'
+ import * as models from '../models/index'
+ import { type User } from '../data/types'
+ import * as utils from '../lib/utils'
++import logger from '../lib/logger'
++
++// [SEC-FIX CWE-89] Allow-list validation for the only two attacker-controlled inputs of the
++// login flow. This is *defense in depth*: the query below is already parameterised, so a
++// payload that survives this check can no longer change the SQL semantics.
++const EMAIL_RE = /^[^\s@'"`\\;()<>]{1,64}@[^\s@'"`\\;()<>]{1,190}\.[A-Za-z]{2,}$/
++const MAX_PASSWORD_LENGTH = 128
+ 
+ // vuln-code-snippet start loginAdminChallenge loginBenderChallenge loginJimChallenge
+ export function login () {
+@@ -31,7 +38,22 @@ export function login () {
+ 
+   return (req: Request, res: Response, next: NextFunction) => {
+     verifyPreLoginChallenges(req) // vuln-code-snippet hide-line
+-    models.sequelize.query(`SELECT * FROM Users WHERE email = '${req.body.email || ''}' AND password = '${security.hash(req.body.password || '')}' AND deletedAt IS NULL`, { model: UserModel, plain: true }) // vuln-code-snippet vuln-line loginAdminChallenge loginBenderChallenge loginJimChallenge
++
++    // [SEC-FIX CWE-89] 1) Strict typing of the inputs: never trust req.body to be a string.
++    const email = typeof req.body?.email === 'string' ? req.body.email : ''
++    const password = typeof req.body?.password === 'string' ? req.body.password : ''
++
++    // [SEC-FIX CWE-89] 2) Allow-list validation. Fail closed and return the same generic
++    // message used for wrong credentials, so the check cannot be used as an oracle.
++    if (!EMAIL_RE.test(email) || password.length === 0 || password.length > MAX_PASSWORD_LENGTH) {
++      logger.warn(`login: rejected malformed credential payload from ${req.ip}`)
++      res.status(401).send(res.__('Invalid email or password.'))
++      return
++    }
++
++    // [SEC-FIX CWE-89] 3) Parameterised query with positional bindings. The value never
++    // becomes part of the SQL text, so quotes/parens/comment markers are inert data.
++    models.sequelize.query('SELECT * FROM Users WHERE email = $1 AND password = $2 AND deletedAt IS NULL', { bind: [email, security.hash(password)], model: UserModel, plain: true })
+       .then((authenticatedUser) => { // vuln-code-snippet neutral-line loginAdminChallenge loginBenderChallenge loginJimChallenge
+         const user = utils.queryResultToJson(authenticatedUser)
+         if (user.data?.id && user.data.totpSecret !== '') {
+@@ -50,7 +72,10 @@ export function login () {
+           res.status(401).send(res.__('Invalid email or password.'))
+         }
+       }).catch((error: Error) => {
+-        next(error)
++        // [SEC-FIX CWE-209] Do not forward the raw driver error to the client: it used to
++        // leak SQL text, table/column names and the DB engine version.
++        logger.error(`login: database error: ${error.message}`)
++        res.status(500).json({ status: 'error', message: 'Internal server error' })
+       })
+   }
+   // vuln-code-snippet end loginAdminChallenge loginBenderChallenge loginJimChallenge
+diff --git a/routes/search.ts b/routes/search.ts
+index 52e1a60..3ee68d9 100644
+--- a/routes/search.ts
++++ b/routes/search.ts
+@@ -20,7 +20,12 @@ export function searchProducts () {
+   return (req: Request, res: Response, next: NextFunction) => {
+     let criteria: any = req.query.q === 'undefined' ? '' : req.query.q ?? ''
+     criteria = (criteria.length <= 200) ? criteria : criteria.substring(0, 200)
+-    models.sequelize.query(`SELECT * FROM Products WHERE ((name LIKE '%${criteria}%' OR description LIKE '%${criteria}%') AND deletedAt IS NULL) ORDER BY name`) // vuln-code-snippet vuln-line unionSqlInjectionChallenge dbSchemaChallenge
++
++    // [SEC-FIX CWE-89] Coerce to string and bind the LIKE pattern as a parameter.
++    // '%' is kept as a wildcard, but quotes/parens/UNION are inert data now.
++    const likePattern = `%${String(criteria)}%`
++
++    models.sequelize.query('SELECT * FROM Products WHERE ((name LIKE $1 OR description LIKE $1) AND deletedAt IS NULL) ORDER BY name', { bind: [likePattern] }) // vuln-code-snippet vuln-line unionSqlInjectionChallenge dbSchemaChallenge
+       .then(([products]: any) => {
+         const dataString = JSON.stringify(products)
+         if (challengeUtils.notSolved(challenges.unionSqlInjectionChallenge)) { // vuln-code-snippet hide-start
+diff --git a/server.ts b/server.ts
+index a8b429c..8bd02ba 100644
+--- a/server.ts
++++ b/server.ts
+@@ -368,6 +368,21 @@ function configureApp (app: ReturnType<typeof express>, seq: typeof sequelize) {
+   // vuln-code-snippet start resetPasswordMortyChallenge
+   /* Rate limiting */
+   app.enable('trust proxy')
++
++  // [SEC-FIX] The login endpoint had no throttle at all, which turned the SQL injection into a
++  // scriptable, unlimited attack (and would allow credential stuffing after a hash dump).
++  // The key generator uses the *transport* IP (req.ip, resolved through the trusted proxy
++  // chain), never a client-supplied header, so it cannot be spoofed.
++  app.use('/rest/user/login', rateLimit({
++    windowMs: 15 * 60 * 1000,
++    max: 40,
++    standardHeaders: true,
++    legacyHeaders: false,
++    handler: (req: any, res: any) => {
++      res.status(429).json({ status: 'error', message: 'Too many login attempts. Try again later.' })
++    }
++  }))
++
+   app.use('/rest/user/reset-password', rateLimit({
+     windowMs: 5 * 60 * 1000,
+     max: 100,

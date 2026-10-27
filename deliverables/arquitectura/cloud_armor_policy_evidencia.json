@@ -1,0 +1,104 @@
+[
+  {
+    "creationTimestamp": "2026-10-26T21:54:44.338-07:00",
+    "description": "SI3006 - WAF perimetral para OWASP Juice Shop (mitigacion de CWE-89 sin acceso al codigo)",
+    "fingerprint": "ItgWtehjd6c=",
+    "id": "969500797497610363",
+    "kind": "compute#securityPolicy",
+    "labelFingerprint": "42WmSpB8rSM=",
+    "name": "juice-shop-waf",
+    "rules": [
+      {
+        "action": "deny(403)",
+        "description": "Bloquea SQLi (OWASP CRS) sensibilidad 1",
+        "kind": "compute#securityPolicyRule",
+        "match": {
+          "expr": {
+            "expression": "evaluatePreconfiguredWaf('sqli-v33-stable', {'sensitivity': 1})"
+          }
+        },
+        "preview": false,
+        "priority": 1000
+      },
+      {
+        "action": "deny(403)",
+        "description": "",
+        "kind": "compute#securityPolicyRule",
+        "match": {
+          "expr": {
+            "expression": "evaluatePreconfiguredWaf('xss-v33-stable', {'sensitivity': 1})"
+          }
+        },
+        "preview": false,
+        "priority": 1100
+      },
+      {
+        "action": "rate_based_ban",
+        "description": "Rate limit 20 req/min por IP con ban de 10 min",
+        "kind": "compute#securityPolicyRule",
+        "match": {
+          "config": {
+            "srcIpRanges": [
+              "*"
+            ]
+          },
+          "versionedExpr": "SRC_IPS_V1"
+        },
+        "preview": false,
+        "priority": 2000,
+        "rateLimitOptions": {
+          "banDurationSec": 600,
+          "conformAction": "allow",
+          "enforceOnKey": "IP",
+          "exceedAction": "deny(429)",
+          "rateLimitThreshold": {
+            "count": 20,
+            "intervalSec": 60
+          }
+        }
+      },
+      {
+        "action": "allow",
+        "description": "default rule",
+        "kind": "compute#securityPolicyRule",
+        "match": {
+          "config": {
+            "srcIpRanges": [
+              "*"
+            ]
+          },
+          "versionedExpr": "SRC_IPS_V1"
+        },
+        "preview": false,
+        "priority": 2147483647
+      },
+      {
+        "action": "rate_based_ban",
+        "description": "Rate limit 20 req/min por IP con ban de 10 min",
+        "kind": "compute#securityPolicyRule",
+        "match": {
+          "config": {
+            "srcIpRanges": [
+              "*"
+            ]
+          },
+          "versionedExpr": "SRC_IPS_V1"
+        },
+        "preview": false,
+        "priority": 3000,
+        "rateLimitOptions": {
+          "banDurationSec": 600,
+          "conformAction": "allow",
+          "enforceOnKey": "IP",
+          "exceedAction": "deny(429)",
+          "rateLimitThreshold": {
+            "count": 20,
+            "intervalSec": 60
+          }
+        }
+      }
+    ],
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/dw-mateo-lopera-2026/global/securityPolicies/juice-shop-waf",
+    "type": "CLOUD_ARMOR"
+  }
+]

@@ -1,0 +1,99 @@
+title: Intento de inyeccion SQL sobre OWASP Juice Shop (CWE-89)
+id: 8f2c1a44-5b7e-4d19-9a03-si3006sql01
+status: experimental
+description: >
+  Detecta payloads de inyeccion SQL enviados a los endpoints de Juice Shop que
+  historicamente concatenan la entrada del usuario en la sentencia SQL
+  (POST /rest/user/login y GET /rest/products/search). Cubre tautologias,
+  UNION SELECT, comentarios de truncamiento y enumeracion de esquema.
+references:
+  - https://owasp.org/www-community/attacks/SQL_Injection
+  - https://github.com/juice-shop/juice-shop/blob/master/routes/login.ts
+author: SI3006 - Equipo Ciberseguridad EAFIT
+date: 2026/10/26
+tags:
+  - attack.initial_access
+  - attack.t1190
+  - attack.credential_access
+  - attack.t1078
+  - cwe.89
+  - owasp.a03_2021
+logsource:
+  category: webserver
+  product: gcp
+  service: cloud_run
+detection:
+  selection_endpoint:
+    httpRequest.requestUrl|contains:
+      - '/rest/user/login'
+      - '/rest/products/search'
+      - '/rest/user/reset-password'
+      - '/api/Users'
+  selection_sqli:
+    httpRequest.requestUrl|contains:
+      - "' OR 1=1"
+      - "'OR'1'='1"
+      - 'UNION SELECT'
+      - 'UNION%20SELECT'
+      - '%27))'
+      - 'sqlite_master'
+      - 'information_schema'
+      - 'qwert'
+  selection_comment:
+    httpRequest.requestUrl|re: '(?i)(--|%2d%2d|%23)(\s|$|%20)'
+  selection_schema:
+    httpRequest.requestUrl|re: '(?i)(from(\+|%20| )users|select(\+|%20| )sql)'
+  filter_healthcheck:
+    httpRequest.requestUrl|endswith:
+      - '/rest/admin/application-version'
+  condition: selection_endpoint and (selection_sqli or selection_comment or selection_schema) and not filter_healthcheck
+fields:
+  - httpRequest.remoteIp
+  - httpRequest.requestUrl
+  - httpRequest.userAgent
+  - httpRequest.status
+falsepositives:
+  - Herramientas de escaneo autorizadas (pentest) -> usar lista de excepcion por IP
+  - Busquedas legitimas que contengan la palabra "qwert" -> retirar ese indicador en produccion
+level: critical
+---
+title: Login exitoso con User-Agent automatizado desde una IP con SQLi previa
+id: 1b9de0c7-77aa-4a1f-81cd-si3006sql02
+status: experimental
+description: >
+  Correlacion: si una misma IP genero un intento de SQLi y luego obtuvo HTTP 200
+  en POST /rest/user/login con un User-Agent de cliente automatico, es muy
+  probable un bypass de autenticacion exitoso.
+references:
+  - https://attack.mitre.org/techniques/T1078/
+author: SI3006 - Equipo Ciberseguridad EAFIT
+date: 2026/10/26
+tags:
+  - attack.defense_evasion
+  - attack.t1078
+  - cwe.287
+  - cwe.89
+logsource:
+  category: webserver
+  product: gcp
+  service: cloud_run
+detection:
+  selection:
+    httpRequest.requestMethod: 'POST'
+    httpRequest.requestUrl|endswith: '/rest/user/login'
+    httpRequest.status: 200
+  selection_ua:
+    httpRequest.userAgent|startswith:
+      - 'curl/'
+      - 'python'
+      - 'Python'
+      - 'sqlmap'
+      - 'go-http-client'
+      - 'PostmanRuntime'
+  condition: selection and selection_ua
+fields:
+  - httpRequest.remoteIp
+  - httpRequest.userAgent
+falsepositives:
+  - Scripts de smoke-test que hacen login con curl tras un escaneo
+level: high

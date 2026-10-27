@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SI3006 — Reglas personalizadas para Wazuh (OSSEC decoder/rule syntax).
+  Ubicación sugerida: /var/ossec/etc/rules/juice_shop_sqli_rules.xml
+  Fuente de logs: access.log de Juice Shop (formato combined de morgan) o
+  request logs de Cloud Run exportados por un log sink a Pub/Sub / Wazuh.
+-->
+<group name="si3006,juice-shop,web,sqli,">
+
+  <rule id="100100" level="0">
+    <decoded_as>json</decoded_as>
+    <field name="event.module">si3006.sqlidetector</field>
+    <description>SI3006: alerta del detector de SQLi (base)</description>
+  </rule>
+
+  <rule id="100101" level="14" frequency="1" timeframe="0">
+    <if_sid>100100</if_sid>
+    <field name="rule.id">SQLI-001</field>
+    <description>SI3006: SQL injection basada en UNION sobre Juice Shop</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+    <group>attack,sqli,union_based,</group>
+  </rule>
+
+  <rule id="100102" level="14">
+    <if_sid>100100</if_sid>
+    <field name="rule.id">SQLI-002</field>
+    <description>SI3006: tautologia OR 1=1 (bypass de autenticacion)</description>
+    <mitre><id>T1190</id></mitre>
+    <group>attack,sqli,auth_bypass,</group>
+  </rule>
+
+  <rule id="100103" level="12">
+    <if_sid>100100</if_sid>
+    <field name="rule.id">SQLI-004</field>
+    <description>SI3006: enumeracion de esquema de base de datos</description>
+    <mitre><id>T1190</id></mitre>
+    <group>attack,sqli,schema_enum,</group>
+  </rule>
+
+  <rule id="100110" level="15">
+    <if_sid>100100</if_sid>
+    <field name="rule.id">AUTH-001</field>
+    <description>SI3006: bypass de autenticacion exitoso (login 200 tras SQLi)</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>attack,auth,auth_bypass,high_confidence,</group>
+  </rule>
+
+  <rule id="100120" level="10">
+    <if_sid>100100</if_sid>
+    <field name="rule.id">AUTH-002</field>
+    <description>SI3006: multiples fallos de login desde una misma IP</description>
+    <mitre><id>T1110</id></mitre>
+    <group>attack,auth,brute_force,</group>
+  </rule>
+
+  <!-- Correlacion: 3+ alertas SQLi de la misma IP en 5 minutos => incidente -->
+  <rule id="100130" level="15" frequency="3" timeframe="300">
+    <if_matched_sid>100101,100102,100103</if_matched_sid>
+    <same_source_ip />
+    <description>SI3006: incidente — campana de SQL injection sostenida desde $(srcip)</description>
+    <mitre><id>T1190</id></mitre>
+    <group>attack,sqli,campaign,incident,</group>
+  </rule>
+
+  <!-- Respuesta activa (requiere configurar el bloque en ossec.conf / active-response) -->
+  <rule id="100140" level="15">
+    <if_sid>100130,100110</if_sid>
+    <description>SI3006: disparo de active-response — ban de la IP en Cloud Armor</description>
+    <group>attack,active_response,</group>
+  </rule>
+
+</group>

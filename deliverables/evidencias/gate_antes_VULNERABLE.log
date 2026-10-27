@@ -1,0 +1,65 @@
+[1m------------------------------------------------------------------------[0m
+ETAPA 1/4 · SAST BLOQUEANTE — Semgrep (p/sql-injection)
+[1m------------------------------------------------------------------------[0m
+                   
+┌─────────────────┐
+│ 2 Code Findings │
+└─────────────────┘
+                   
+    routes/login.ts
+   ❯❯❱ javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
+          ❰❰ Blocking ❱❱
+          Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if   
+          the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it
+          is recommended to use parameterized queries or prepared statements.                                 
+          Details: https://sg.run/gjoe                                                                        
+                                                                                                              
+           34┆ models.sequelize.query(`SELECT * FROM Users WHERE email = '${req.body.email || ''}' AND
+               password = '${security.hash(req.body.password || '')}' AND deletedAt IS NULL`, { model:
+               UserModel, plain: true }) // vuln-code-snippet vuln-line loginAdminChallenge           
+               loginBenderChallenge loginJimChallenge                                                 
+                    
+    routes/search.ts
+   ❯❯❱ javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
+          ❰❰ Blocking ❱❱
+          Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if   
+          the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it
+          is recommended to use parameterized queries or prepared statements.                                 
+          Details: https://sg.run/gjoe                                                                        
+                                                                                                              
+           23┆ models.sequelize.query(`SELECT * FROM Products WHERE ((name LIKE '%${criteria}%' OR   
+               description LIKE '%${criteria}%') AND deletedAt IS NULL) ORDER BY name`) // vuln-code-
+               snippet vuln-line unionSqlInjectionChallenge dbSchemaChallenge                        
+
+[31m[FAIL] SAST: hallazgos bloqueantes de inyeccion SQL (exit 1)[0m
+[1m------------------------------------------------------------------------[0m
+ETAPA 2/4 · SAST INFORMATIVO — Semgrep (p/owasp-top-ten)
+[1m------------------------------------------------------------------------[0m
+               snippet vuln-line unionSqlInjectionChallenge dbSchemaChallenge                        
+                         
+    routes/userProfile.ts
+   ❯❯❱ javascript.lang.security.audit.code-string-concat.code-string-concat
+          ❰❰ Blocking ❱❱
+          Found data from an Express or Next web request flowing to `eval`. If this data is user-controllable
+          this can lead to execution of arbitrary system commands in the context of your application process.
+          Avoid `eval` whenever possible.                                                                    
+          Details: https://sg.run/96Yk                                                                       
+                                                                                                             
+           65┆ username = eval(code) // eslint-disable-line no-eval
+
+  (Juice Shop contiene vulnerabilidades deliberadas: este barrido es un baseline,
+   no un gate. En un producto real se bloquea con excepciones aprobadas por el CISO.)
+[1m------------------------------------------------------------------------[0m
+ETAPA 3/4 · SCA — npm audit
+[1m------------------------------------------------------------------------[0m
+[SKIP] sin package.json / node_modules en esta copia de trabajo
+[1m------------------------------------------------------------------------[0m
+ETAPA 4/4 · Config as Code — endpoints sensibles sin throttle
+[1m------------------------------------------------------------------------[0m
+  FALTA rate limit en /rest/user/login
+  OK  rate limit en /rest/user/reset-password
+  -> 1 endpoint(s) sensibles sin rate limiting
+[1m------------------------------------------------------------------------[0m
+RESULTADO DEL GATE
+[1m------------------------------------------------------------------------[0m
+[41;97m PIPELINE ROJO — el despliegue se bloquea [0m

@@ -1,0 +1,16 @@
+                  
+                  
+┌────────────────┐
+│ 1 Code Finding │
+└────────────────┘
+                         
+    routes/userProfile.ts
+   ❯❯❱ javascript.lang.security.audit.code-string-concat.code-string-concat
+          ❰❰ Blocking ❱❱
+          Found data from an Express or Next web request flowing to `eval`. If this data is user-controllable
+          this can lead to execution of arbitrary system commands in the context of your application process.
+          Avoid `eval` whenever possible.                                                                    
+          Details: https://sg.run/96Yk                                                                       
+                                                                                                             
+           65┆ username = eval(code) // eslint-disable-line no-eval
+

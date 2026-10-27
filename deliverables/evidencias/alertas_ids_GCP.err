@@ -1,0 +1,3 @@
+
+[detector] formato=gcp lineas=760 alertas=2
+[detector]   fuente 190.158.29.11: 1 request(s) malicioso(s)

@@ -1,0 +1,29 @@
+escenario,componente,usd_mes,nota,fuente_precio
+actual,"Cloud Run (1 vCPU / 1 GiB, 100k req)",0.0,Request-based billing; el uso cabe en el free tier mensual,API
+actual,Almacenamiento de imagen en Artifact Registry,0.05,"0,5 GB gratis",DOC
+actual,Cloud Logging (request logs),0.0,50 GiB gratis/mes,DOC
+actual,TOTAL,0.05,,
+minima,"Cloud Run (1 vCPU / 1 GiB, 100k req)",0.0,Request-based billing; el uso cabe en el free tier mensual,API
+minima,Global External Application Load Balancer,18.26,regla de reenvío 730 h + 1 GB,DOC
+minima,Cloud Armor Standard (1 política + 3 reglas),8.07,"sqli, xss, rate-based-ban",DOC
+minima,Cloud Logging + Monitoring,0.0,free tier,DOC
+minima,TOTAL,26.33,,
+recomendada,"Cloud Run (1 vCPU / 1 GiB, 100k req)",0.0,Request-based billing; el uso cabe en el free tier mensual,API
+recomendada,Global External Application Load Balancer,18.26,regla de reenvío 730 h + 1 GB,DOC
+recomendada,Cloud Armor Standard (1 política + 3 reglas),8.07,"sqli, xss, rate-based-ban",DOC
+recomendada,Cloud Logging + Monitoring,0.0,free tier,DOC
+recomendada,"Cloud SQL PostgreSQL (Regional, 1 vCPU/3,75 GiB, 20 GB SSD)",105.42,HA regional; IP privada; PITR 7 días,API
+recomendada,Serverless VPC Access (conector),7.0,egress privado hacia Cloud SQL,DOC
+recomendada,Secret Manager (2 versiones + 100k accesos),0.42,credenciales DB y claves JWT,API
+recomendada,"Cloud KMS (2 claves software, CMEK)",0.42,rotación 90 días,API
+recomendada,BigQuery / SIEM (almacenamiento y consultas),0.0,10 GiB y 1 TiB/mes gratis,DOC
+recomendada,TOTAL,139.59,,
+economica,"Cloud Run (1 vCPU / 1 GiB, 100k req)",0.0,Request-based billing; el uso cabe en el free tier mensual,API
+economica,Global External Application Load Balancer,18.26,regla de reenvío 730 h + 1 GB,DOC
+economica,Cloud Armor Standard (1 política + 3 reglas),8.07,"sqli, xss, rate-based-ban",DOC
+economica,Cloud Logging + Monitoring,0.0,free tier,DOC
+economica,"Cloud SQL PostgreSQL (Zonal, 1 vCPU/3,75 GiB, 20 GB SSD)",56.11,sin HA: RPO/RTO mayores,API
+economica,Serverless VPC Access (conector),7.0,,DOC
+economica,Secret Manager,0.42,,API
+economica,Cloud KMS,0.42,,API
+economica,TOTAL,90.28,,

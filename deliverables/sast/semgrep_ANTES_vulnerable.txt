@@ -1,0 +1,31 @@
+                   
+                   
+┌─────────────────┐
+│ 2 Code Findings │
+└─────────────────┘
+                   
+    routes/login.ts
+   ❯❯❱ javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
+          ❰❰ Blocking ❱❱
+          Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if   
+          the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it
+          is recommended to use parameterized queries or prepared statements.                                 
+          Details: https://sg.run/gjoe                                                                        
+                                                                                                              
+           34┆ models.sequelize.query(`SELECT * FROM Users WHERE email = '${req.body.email || ''}' AND
+               password = '${security.hash(req.body.password || '')}' AND deletedAt IS NULL`, { model:
+               UserModel, plain: true }) // vuln-code-snippet vuln-line loginAdminChallenge           
+               loginBenderChallenge loginJimChallenge                                                 
+                    
+    routes/search.ts
+   ❯❯❱ javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
+          ❰❰ Blocking ❱❱
+          Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if   
+          the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it
+          is recommended to use parameterized queries or prepared statements.                                 
+          Details: https://sg.run/gjoe                                                                        
+                                                                                                              
+           23┆ models.sequelize.query(`SELECT * FROM Products WHERE ((name LIKE '%${criteria}%' OR   
+               description LIKE '%${criteria}%') AND deletedAt IS NULL) ORDER BY name`) // vuln-code-
+               snippet vuln-line unionSqlInjectionChallenge dbSchemaChallenge                        
+
